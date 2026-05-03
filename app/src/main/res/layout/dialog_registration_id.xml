@@ -6,14 +6,16 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="350dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:padding="20dp">
 
         <TextView
             android:text="You are now registered!"
             android:textStyle="bold"
             android:textSize="20sp"
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"

@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
@@ -92,8 +93,20 @@ class RegisterActivity : AppCompatActivity() {
             return false
         }
 
+        if (etPassword.text.toString().length < 8) {
+            if (showFeedback) tvInputFeedback.text = "Password is weak."
+            tvInputFeedback.visibility = if (showFeedback) View.VISIBLE else View.GONE
+            return false
+        }
+
         if (etPassword.text.toString() != etConfirmPassword.text.toString()) {
             if (showFeedback) tvInputFeedback.text = "Passwords do not match."
+            tvInputFeedback.visibility = if (showFeedback) View.VISIBLE else View.GONE
+            return false
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(etEmail.text.toString()).matches()) {
+            if (showFeedback) tvInputFeedback.text = "Invalid email address."
             tvInputFeedback.visibility = if (showFeedback) View.VISIBLE else View.GONE
             return false
         }
